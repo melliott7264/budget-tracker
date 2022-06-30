@@ -28,9 +28,6 @@ request.onerror = function (event) {
 // this function will be executed if we attempt to submit a new transaction and there's no internet connection
 // call this in index.js in the .catch method meaning that the fetch failed
 function saveTransaction(record) {
-  // create an object store (table) called 'fiance-transactions'
-  //   db.createObjectStore('finance-transactions', { autoIncrement: true });
-
   // open a new transacton with the database with read and write permissions
   const transaction = db.transaction(['finance-transactions'], 'readwrite');
 
@@ -42,3 +39,41 @@ function saveTransaction(record) {
   // add record to your store with add method
   transactionObjectStore.add(record);
 }
+
+function uploadTransactions() {}
+// need to run a loop to get all the transactions saved in IndexedDB and pass them to the /api/transaction endpoint
+// first, open a transaction to the db
+const transaction = db.transaction(['finance-transactions'], 'readwrite');
+// next, assign an object store variable
+const transactionObjectStore = transaction.objectStore('finance-transactions');
+// lastly,  get all the records from the object store and assign it to a variable
+const getAll = transactionObjectStore.getAll();
+
+getAll.onsuccess = function () {
+  // if there is data in the object store, send it to the server
+  if (getAll.result.length > 0) {
+    fetch('/api/transaction', {
+      method: 'POST',
+      body: JSON.stringify(getAll.result),
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then(() => {
+        const transaction = db.transaction(
+          ['finance-transactions'],
+          'readwrite'
+        );
+
+        const transactionObjectStore = transaction.objectStore(
+          'finance-transactions'
+        );
+        transactionObjectStore.clear();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+};
