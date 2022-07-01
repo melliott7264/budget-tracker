@@ -151,3 +151,12 @@ document.querySelector('#add-btn').onclick = function () {
 document.querySelector('#sub-btn').onclick = function () {
   sendTransaction(false);
 };
+
+// When browser goes online, reload the page to upload any offline transactions
+document.addEventListener('online', browserOnline);
+
+function browserOnline() {
+  console.log('Browser is back online!');
+  location.reload();
+  return;
+}

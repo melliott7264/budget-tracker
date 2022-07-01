@@ -13,7 +13,7 @@ This project is to take an existing budget tracker web application and transform
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+Navigate to the application on Heroku at the following URL: . Once the application is loaded, click on the download/install icon a the far right of the browser address bar. Now, the application will show up as a regular application on your device.
 
 ## Usage
 
@@ -29,11 +29,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 Mark Elliott https://github.com/melliott7264
 
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
+The basic application starter code was provided as part of this University of Richmond Coding Boot Camp Challenge #19. Mark Elliott added the offline functionality using IndexedDB, a service worker, and a manifest making this a simple PWA.
 
 ## License
 
