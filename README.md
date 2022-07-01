@@ -13,13 +13,11 @@ This project is to take an existing budget tracker web application and transform
 
 ## Installation
 
-Navigate to the application on Heroku at the following URL: . Once the application is loaded, click on the download/install icon a the far right of the browser address bar. Now, the application will show up as a regular application on your device.
+Navigate to the application on Heroku at the following URL: https://dudley-poutine-45869.herokuapp.com/ . Once the application is loaded, click on the install icon at the far right of the browser address bar. Now, the application will show up as a regular application on your device. Open the application to get started.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+Once the application is started, using it is very simple. Type a transaction description into the "Name of transaction" box. Then enter a transaction amount into the "Transaction amount" box. If the transaction is revenue, click the "Add Funds" button. If the transaction is an expense, click the "Subtract Funds" button. It is that simple. The transactions will be graphed and a running total displayed. If you do not have a sufficient internet connection, transactions will be saved locally. When an good internet connection is restored, the offline transactions will be uploaded to the server when the application is restarted or when the next transaction is entered. No transaction should be lost.
 
     ```md
     ![alt text](assets/images/screenshot.png)
